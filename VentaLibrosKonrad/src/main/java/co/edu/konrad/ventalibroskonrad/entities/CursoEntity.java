@@ -5,57 +5,61 @@
  */
 package co.edu.konrad.ventalibroskonrad.entities;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
- *Clase para modelar la Entidad Curso
- * @author EnriqueS
+ * Clase para modelar la Entidad Curso
+ * @author Cindy H.
  */
-@Entity (name="Curso")
-public class CursoEntity implements Serializable{
-     /*
-    Atributo estático para el manejo de versiones de la entidad
-    */
-    private static final long serialVersionUIC=1L;
-    
+@Entity 
+public class CursoEntity implements Serializable {
     
     /**
-    *Llave primaria de la Entidad Curso 
-    **/
+     * Atributo estático para el manejo de versiones de la entidad
+     */
+    private static final long serialVersionUID= 1L;
+
+    /**
+     * Llave primaria de la Entidad Curso
+     */
     @Id
-    @Column(name="id_curso", unique = true)
+    @Column (name = "id_curso", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idcurso;
-    
-    
+    private Long idCurso;
     
     /**
      * Variable que almacena el nombre del curso
-     */    
-    @Column(name="nombre_curso")
+     */
+    @Column (name = "nombre_curso", nullable = false)
     private String nombreCurso;
     
-     /*
-    Variable que almacena el numero de la seccion
-    */
-    @Column (name="numero_seccion")
+    /**
+     * Variable que almacena el apellido del curso
+     */
+    @Column (name = "numero_seccion")
     private int numeroSeccion;
     
-     /*
-    Variable que almacena el numero del semestre 
-    */
-    @Column (name="semestre")
+    /**
+     * Variable que almacena el correo de contacto del curso
+     */
+    @Column 
     private int semestre;
 
-         
     /**
      * Metodos GET Y SET
      */
     
-    public Long getIdcurso() {
-        return idcurso;
+    public Long getIdCurso() {
+        return idCurso;
     }
 
-    public void setIdcurso(Long idcurso) {
-        this.idcurso = idcurso;
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
     }
 
     public String getNombreCurso() {
@@ -80,7 +84,5 @@ public class CursoEntity implements Serializable{
 
     public void setSemestre(int semestre) {
         this.semestre = semestre;
-    }
-    
-   
+    }   
 }

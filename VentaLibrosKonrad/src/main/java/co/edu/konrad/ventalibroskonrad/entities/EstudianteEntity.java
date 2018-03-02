@@ -13,51 +13,49 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *Clase para modelar la Entidad Estudiante
- * @author Enrique Suarez Guette
+ * Clase para modelar la Entidad Estudiante
+ * @author Cindy H.
  */
-@Entity (name="Estudiante")
-public class EstudianteEntity implements Serializable{
-    
-    /*
-    Atributo estático para el manejo de versiones de la entidad
-    */
-    private static final long serialVersionUID=1L;
+@Entity (name = "Estudiante")
+public class EstudianteEntity implements Serializable {
     
     /**
-    *Llave primaria de la Entidad Estudiante 
-    **/
+     * Atributo estático para el manejo de versiones de la entidad
+     */
+    private static final long serialVersionUID= 1L;
+
+    /**
+     * Llave primaria de la Entidad Estudiante
+     */
     @Id
-    @Column(name="id_estudiante", unique = true)
+    @Column (name = "id_estudiante", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEstudiante;
     
     /**
      * Variable que almacena el nombre del estudiante
-     */    
-    @Column(name="nombre_estudiante")
+     */
+    @Column (name = "nombre_estudiante", nullable = false)
     private String nombreEstudiante;
     
-    
-    /*
-    Variable que almacena el apellido del estudiante
-    */
-    @Column (name="apellido_estudiante")
-    private String apellidoEStudiante;
+    /**
+     * Variable que almacena el apellido del estudiante
+     */
+    @Column (name = "apellido_estudiante")
+    private String apellidoEstudiante;
     
     /**
-     * Variable que almacena el correo del estudiante
-    */
-    @Column (name="correo_estudiante")    
+     * Variable que almacena el correo de contacto del estudiante
+     */
+    @Column (name = "email")
     private String correoElectronico;
     
     /**
      * Variable que almacena el codigo del estudiante
-     * que lo identifica como estudiante de la Konrad
+     * que lo identifica como estudiante de la konrad
      */
-    @Column (name="codigo_estudiante")
+    @Column (name = "codigo_estudiante")
     private int codigoEstudiante;
-    
     
     /**
      * Metodos GET Y SET
@@ -79,12 +77,12 @@ public class EstudianteEntity implements Serializable{
         this.nombreEstudiante = nombreEstudiante;
     }
 
-    public String getApellidoEStudiante() {
-        return apellidoEStudiante;
+    public String getApellidoEstudiante() {
+        return apellidoEstudiante;
     }
 
-    public void setApellidoEStudiante(String apellidoEStudiante) {
-        this.apellidoEStudiante = apellidoEStudiante;
+    public void setApellidoEstudiante(String apellidoEstudiante) {
+        this.apellidoEstudiante = apellidoEstudiante;
     }
 
     public String getCorreoElectronico() {
@@ -102,11 +100,5 @@ public class EstudianteEntity implements Serializable{
     public void setCodigoEstudiante(int codigoEstudiante) {
         this.codigoEstudiante = codigoEstudiante;
     }
-    
-    
-    
-    
-    
-    
     
 }

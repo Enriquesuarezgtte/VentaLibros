@@ -13,67 +13,59 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 /**
- *Manejador de la entidad Estudiante
- * @author Enrique Suarez Guette
+ * Manejador de la entidad Estudiante
+ * @author Cindy H.
  */
-
-@Stateless 
+@Stateless
 public class EstudiantePersistence {
-   /**
-    * Designamos el entity manager y el archivo de su conexion con la bd
-    */
     
     @PersistenceContext(unitName = "ventasPU")
     protected EntityManager em;
-   /**
-    * Obtener la lista con los datos de la tabla Estudiante    
-    * @return Lista de datos de la tabla Estudiante
-    */
+    
+    /**
+     * Obtener la lista con los datos de la tabla Estudiante
+     * @return Lista de datos de la tabla Estudiante
+     */
     public List<EstudianteEntity> findAll(){
-      Query todos = em.createQuery("select e from EstudianteEntity e");
-     return todos.getResultList();
-        
+        Query todos = em.createQuery("select e from EstudianteEntity e");
+        return todos.getResultList();
     }
     
     /**
-     * Buscar una tupla especifica de la tabla Estudiante
-     * @param id del estudiante que queremos buscar
-     * @return estudiante 
+     * Encontrar una tupla especifica de la tabla Estudiante
+     * @param id que se desea buscar
+     * @return estudianteEntity
      */
     public EstudianteEntity find(Long id){
         EstudianteEntity estudiante = em.find(EstudianteEntity.class, id);
-        
         return estudiante;
     }
     
     /**
      * Creacion de un nuevo estudiante
      * @param estudiante
-     * @return nuevo estudiante
-     */    
+     * @return nuevo estudiante creado
+     */
     public EstudianteEntity create(EstudianteEntity estudiante){
         em.persist(estudiante);
         return estudiante;
     }
     
     /**
-     * Actualizacion de datos de estudiante
-     * @param estudianteUpdate
+     * Actualizacion de una tupla de la tabla Estudiante
+     * @param estudianteActualizar
      * @return estudiante actualizado
      */
-    public EstudianteEntity update (EstudianteEntity estudianteUpdate){
-        return em.merge(estudianteUpdate);
-        
+    public EstudianteEntity update (EstudianteEntity estudianteActualizar){
+        return em.merge(estudianteActualizar);
     }
+    
     /**
-     * Elimina una tupla de la tabla Estudiante
+     * Elimina una tupla estudiante de la tabla
      * @param id 
      */
-    public void delete(Long id){
-        EstudianteEntity estudianteEntity = em.find(EstudianteEntity.class, id);
-        em.remove(estudianteEntity);
+    public void delete (Long id){
+        EstudianteEntity estudianteDelete = em.find(EstudianteEntity.class, id);
+        em.remove(estudianteDelete);
     }
-    
-    
-    
 }
