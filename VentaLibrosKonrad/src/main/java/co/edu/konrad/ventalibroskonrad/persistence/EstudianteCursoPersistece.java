@@ -22,6 +22,7 @@ public class EstudianteCursoPersistece {
     
     @PersistenceContext(unitName = "ventasPU")
     protected EntityManager em;
+    
     /**
      * Método para obtener toda la informacion de la tabla EstudianteCurso
      * @return lista de datos
@@ -30,25 +31,27 @@ public class EstudianteCursoPersistece {
         Query todos = em.createQuery("Select ec from EstudianteCursoEntity ec");
         return todos.getResultList();
     }
+    
     /**
      * Metodo para obtener una tupla de EstudianteCurso a partir del id
      * @param id
      * @return  objeto EstudianteCurso encontrado
-     */
+     */    
     private EstudianteCursoEntity find(Long id){
         EstudianteCursoEntity estudianteCurso = em.find(EstudianteCursoEntity.class, id);
         return estudianteCurso;        
     }
+    
     /**
      * Método para crear un nuevo objeto de la tabla EstudianteCurso
      * @param estudianteCursoAgregar
      * @return objeto a agregar
-     */
-    
+     */    
     private EstudianteCursoEntity create( EstudianteCursoEntity estudianteCursoAgregar){
         em.persist(estudianteCursoAgregar);
         return estudianteCursoAgregar;
     }
+    
     /**
      * Actualizar informacion de un estudiante
      * @param estudianteCursoUpdate
@@ -58,11 +61,11 @@ public class EstudianteCursoPersistece {
             em.merge(estudianteCursoUpdate);
             return estudianteCursoUpdate;
     }
+    
     /**
      * Borrar objeto de un EstudianteCurso buscado por id
      * @param id 
-     */
-    
+     */    
     public void delete (Long id){
         EstudianteCursoEntity ecdelete = em.find(EstudianteCursoEntity.class, id);
         em.remove(id);
