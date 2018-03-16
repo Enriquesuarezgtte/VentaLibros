@@ -14,7 +14,7 @@ import javax.persistence.Query;
 
 /**
  * Manejador de la entidad Libro
- * @author Cindy H.
+ * @author Enrique Suarez
  */
 @Stateless
 public class LibroPersistence {
