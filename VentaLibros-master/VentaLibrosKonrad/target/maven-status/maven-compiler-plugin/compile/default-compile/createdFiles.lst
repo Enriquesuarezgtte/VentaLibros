@@ -1,11 +1,17 @@
 co\edu\konrad\ventalibroskonrad\entities\EstudianteEntity.class
+co\edu\konrad\ventalibroskonrad\dto\EstudianteCursoDTO.class
+co\edu\konrad\ventalibroskonrad\logic\EstudianteLogic.class
 co\edu\konrad\ventalibroskonrad\persistence\EstudianteCursoPersistece.class
+co\edu\konrad\ventalibroskonrad\dto\CursoDTO.class
 co\edu\konrad\ventalibroskonrad\entities\LibroEntity_.class
 co\edu\konrad\ventalibroskonrad\persistence\EstudiantePersistence.class
+co\edu\konrad\ventalibroskonrad\resources\EstudianteResource.class
 co\edu\konrad\ventalibroskonrad\entities\CursoEntity_.class
 co\edu\konrad\ventalibroskonrad\persistence\LibroPersistence.class
+co\edu\konrad\ventalibroskonrad\dto\EstudianteDTO.class
 co\edu\konrad\ventalibroskonrad\entities\CursoEntity.class
 co\edu\konrad\ventalibroskonrad\entities\EstudianteCursoEntity.class
+co\edu\konrad\ventalibroskonrad\resources\ApplicationConfig.class
 co\edu\konrad\ventalibroskonrad\entities\EstudianteCursoEntity_.class
 co\edu\konrad\ventalibroskonrad\persistence\CursoPersistence.class
 co\edu\konrad\ventalibroskonrad\entities\EstudianteEntity_.class

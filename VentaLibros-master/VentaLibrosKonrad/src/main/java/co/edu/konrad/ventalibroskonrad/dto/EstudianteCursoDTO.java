@@ -11,7 +11,7 @@ import co.edu.konrad.ventalibroskonrad.entities.EstudianteEntity;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad EstudianteCurso
- * @author Enrique Suarez
+ * @author Cindy H.
  */
 public class EstudianteCursoDTO {
     
@@ -34,23 +34,23 @@ public class EstudianteCursoDTO {
      * @param ec 
      */
     public EstudianteCursoDTO(EstudianteCursoEntity ec) {
-        this.id=ec.getIdEstudianteCurso();
-        if(ec.getEstudianteEntity()!=null){
-            EstudianteEntity es = new EstudianteEntity();
-            es.setIdEstudiante(ec.getEstudianteEntity().getIdEstudiante());
-            es.setApellidoEstudiante(ec.getEstudianteEntity().getApellidoEstudiante());
-            es.setCodigoEstudiante(ec.getEstudianteEntity().getCodigoEstudiante());
-            es.setNombreEstudiante(ec.getEstudianteEntity().getNombreEstudiante());
-            es.setCorreoElectronico(ec.getEstudianteEntity().getCorreoElectronico());
-            this.estudiante=new EstudianteDTO(es);                        
+        this.id = ec.getIdEstudianteCurso();
+        if(ec.getEstudianteEntity() != null){
+            EstudianteEntity estudiante = new EstudianteEntity();
+            estudiante.setIdEstudiante(ec.getEstudianteEntity().getIdEstudiante());
+            estudiante.setNombreEstudiante(ec.getEstudianteEntity().getNombreEstudiante());
+            estudiante.setApellidoEstudiante(ec.getEstudianteEntity().getApellidoEstudiante());
+            estudiante.setCodigoEstudiante(ec.getEstudianteEntity().getCodigoEstudiante());
+            estudiante.setCorreoElectronico(ec.getEstudianteEntity().getCorreoElectronico());
+            this.estudiante = new EstudianteDTO(estudiante);
         }
-        if(ec.getCurso() !=null){
+        if(ec.getCurso() != null){
             CursoEntity curso = new CursoEntity();
             curso.setIdCurso(ec.getCurso().getIdCurso());
             curso.setNombreCurso(ec.getCurso().getNombreCurso());
             curso.setNumeroSeccion(ec.getCurso().getNumeroSeccion());
             curso.setSemestre(ec.getCurso().getSemestre());
-            this.curso= new CursoDTO(curso);
+            this.curso = new CursoDTO(curso);
         }
     }
     
@@ -61,25 +61,24 @@ public class EstudianteCursoDTO {
     public EstudianteCursoEntity toEntity(){
        EstudianteCursoEntity ece = new EstudianteCursoEntity();
        ece.setIdEstudianteCurso(this.id);
-       if(this.estudiante !=null){
+       if(this.estudiante != null){
            EstudianteEntity estudiante = new EstudianteEntity();
            estudiante.setIdEstudiante(this.estudiante.getId());
            estudiante.setNombreEstudiante(this.estudiante.getNombreEstudiante());
            estudiante.setApellidoEstudiante(this.estudiante.getApellidoEstudiante());
            estudiante.setCodigoEstudiante(this.estudiante.getCodigoEstudiante());
-           estudiante.setCorreoElectronico(this.estudiante.getCorreoEstudiante());           
-       ece.setEstudianteEntity(estudiante);
+           estudiante.setCorreoElectronico(this.estudiante.getCorreoEstudiante());
+           ece.setEstudianteEntity(estudiante);
        }
-       if(this.curso!=null){
-           CursoEntity curs = new CursoEntity();
-           curs.setIdCurso(this.curso.getId());
-           curs.setNombreCurso(this.curso.getNombreCurso());
-           curs.setNumeroSeccion(this.curso.getNumeroSeccion());
-           curs.setSemestre(this.curso.getSemestre());
-           ece.setCurso(curs);
+       if(this.curso != null){
+           CursoEntity curso = new CursoEntity();
+           curso.setIdCurso(this.curso.getId());
+           curso.setNombreCurso(this.curso.getNombreCurso());
+           curso.setNumeroSeccion(this.curso.getNumeroSeccion());
+           curso.setSemestre(this.curso.getSemestre());
+           ece.setCurso(curso);
        }
        return ece;
-       
     }
 
     public Long getId() {
@@ -105,6 +104,16 @@ public class EstudianteCursoDTO {
     public void setCurso(CursoDTO curso) {
         this.curso = curso;
     }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
+    }
+    
+    
     
     
     
